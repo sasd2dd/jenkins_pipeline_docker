@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
+        /* stage('Checkout') {
             agent any
             steps {
                 checkout([$class: 'GitSCM',
@@ -12,7 +12,7 @@ pipeline {
                   ]],
 				])
             }
-        }
+        } */
         stage('build'){
                 agent any
             steps{
