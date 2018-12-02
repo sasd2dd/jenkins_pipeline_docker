@@ -8,8 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>" \
-      version="2.0"
+LABEL maintainer="timothy.gonda@gmail.com>" \
+      version="1.0"
 
 VOLUME ["/app/public"]
 
