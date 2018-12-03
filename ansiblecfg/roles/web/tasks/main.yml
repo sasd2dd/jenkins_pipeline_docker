@@ -1,14 +1,5 @@
 ---
-# tasks file for web
-
-- name: run the playbook tasks on the localhost
-  hosts: 127.0.0.1
-  connection: local
-  become: yes
+- hosts:
+    - all
   tasks:
-
-  - name: print out the hostname of target
-    command: hostname
-  
-  - name: update the apt package index i.e. apt-get update
-    apt: update_cache=yes
+    - action: apt update_cache=yes cache_valid_time=3600
