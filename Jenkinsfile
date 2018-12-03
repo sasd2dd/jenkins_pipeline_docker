@@ -26,7 +26,7 @@ pipeline {
                 println "build"
                 script {
 					app = docker.build('timgondasr/web2_web:latest')
-                    RETURN_STATUS = sh "docker-compose up -d --build"
+                    RETURN_STATUS = sh "docker-compose up -d"
                 }
             }
         }
