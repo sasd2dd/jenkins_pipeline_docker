@@ -3,8 +3,5 @@
 ## Ansible Playbook for upgrading packages
 ##########################################
 
-- name: update all yum packages
-  yum:
-    name: '*'
-    state: latest
-  become: true
+- name: get dir listing
+  shell: ls -ltr
