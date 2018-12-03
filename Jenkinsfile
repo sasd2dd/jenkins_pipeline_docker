@@ -3,6 +3,10 @@ pipeline {
     options {
       buildDiscarder(logRotator(numToKeepStr: '2'))
     }
+    environment {
+      registry = 'sasd2dd'
+      registryCredential = ‘dockerhub’
+    }
     stages {
         /* stage('Checkout') {
             agent any
@@ -65,10 +69,7 @@ pipeline {
         {
             agent any
       		steps {
-        		withDockerRegistry([ credentialsId: "dockerhub", url: "store.docker.com" ]) {
-          			sh 'docker push timgondasr/web2_web:latest'
-          			sh 'docker push timgondasr/flask_web:latest'
-        		}
+        		var web-img = docker.image("web2_web:latest")
         		print "pushed to dockerhub"
         	}
       	}
