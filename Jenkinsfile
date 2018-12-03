@@ -64,9 +64,6 @@ pipeline {
         stage('push to repo')
         {
             agent any
- 			when {
-        		branch 'master'
-      		}
       		steps {
         		withDockerRegistry([ credentialsId: "tim-git", url: "" ]) {
           			sh 'docker push sasd2dd/web2_web:latest'
