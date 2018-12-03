@@ -1,5 +1,10 @@
 ---
-- hosts:
-    - all
-  tasks:
-    - action: apt update_cache=yes cache_valid_time=3600
+##########################################
+## Ansible Playbook for upgrading packages
+##########################################
+
+- name: update all yum packages
+  yum:
+    name: '*'
+    state: latest
+  become: true
