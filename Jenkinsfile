@@ -65,7 +65,7 @@ pipeline {
         {
             agent any
       		steps {
-        		withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+        		withDockerRegistry([ credentialsId: "dockerhub", url: "store.docker.com" ]) {
           			sh 'docker push timgondasr/web2_web:latest'
           			sh 'docker push timgondasr/flask_web:latest'
         		}
