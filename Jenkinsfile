@@ -4,8 +4,8 @@ pipeline {
       buildDiscarder(logRotator(numToKeepStr: '2'))
     }
     environment {
-    	registry = 'timgondasr/web2_web'
-    	registryCredential = credentials(‘dockerhub’)
+    	registry = "timgondasr/web2_web"
+    	registryCredential = "dockerhub"
 	}
 
     stages {
