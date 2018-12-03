@@ -79,7 +79,7 @@ pipeline {
             steps{
                 println "deploy with ansible"
                 script {
-                    ansiblePlaybook(credentialsId: 'private_key', inventory: 'ansiblecfg/hosts', playbook: 'site.yml')
+                    ansiblePlaybook( inventory: 'ansiblecfg/hosts', playbook: 'ansiblecfg/site.yml')
                 }
             }
         }
