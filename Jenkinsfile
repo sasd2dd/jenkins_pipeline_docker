@@ -54,9 +54,6 @@ pipeline {
             //        string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
             //        }
             //    }
-                steps{
-                    print "Approver is : " + Approver
-                }
             steps{
                 print "Approved"
             }
