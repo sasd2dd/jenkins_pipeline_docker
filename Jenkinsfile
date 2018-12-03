@@ -64,10 +64,17 @@ pipeline {
         stage('push to repo')
         {
             agent any
-            steps{
-                print "Pushed to repo"
-            }
-        }
+ 			when {
+        		branch 'master'
+      		}
+      		steps {
+        		withDockerRegistry([ credentialsId: "tim-git", url: "" ]) {
+          			sh 'docker push sasd2dd/web2_web:latest'
+          			sh 'docker push sasd2dd/flask_web:latest'
+        		}
+        		print "pushed to dockerhub"
+        	}
+      	}
         stage('cleanup'){
                 agent any
             steps{
