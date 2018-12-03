@@ -65,11 +65,20 @@ pipeline {
         }
         stage('push to repo')
         {
-            agent any
+            agent {
+                docker {
+                    image
+                }
+
+                
+            }
+
       		steps {
+                environment { 
+                    CREDS = credentials('dockerhub') 
+                }
       		    script {
-      		    dockercreds = credentials("dockerhub")
-        			docker.withRegistry("https://index.docker.io/v1/", dockercreds){
+      		    		docker.withRegistry("https://index.docker.io/v1/", $(CREDS)){
         			    webimg = docker.image("web2_web:latest")
                      	webimg.push("latest")
                     }
