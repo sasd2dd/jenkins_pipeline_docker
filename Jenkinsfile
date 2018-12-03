@@ -68,6 +68,9 @@ pipeline {
       		steps {
       		    script {
         			webimg = docker.image("web2_web:latest")
+        			docker.withRegistry("https://${registryAddress}", 'dockerhub'){
+                     	newImage.push("latest")
+                    }
         			print "pushed to dockerhub"
         		}
         	}
