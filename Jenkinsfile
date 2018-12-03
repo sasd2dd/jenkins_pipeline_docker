@@ -66,8 +66,10 @@ pipeline {
         {
             agent any
       		steps {
-        		webimg = docker.image("web2_web:latest")
-        		print "pushed to dockerhub"
+      		    script {
+        			webimg = docker.image("web2_web:latest")
+        			print "pushed to dockerhub"
+        		}
         	}
       	}
         stage('cleanup'){
