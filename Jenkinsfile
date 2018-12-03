@@ -47,16 +47,19 @@ pipeline {
             }
         }
         stage('approval to deploy'){
-            input{
-                message "Please approve the deployment"
-                ok "Ok"
-                parameters {
-                    string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
-                    }
-                }
+            //input{
+            //    message "Please approve the deployment"
+            //    ok "Ok"
+            //    parameters {
+            //        string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
+            //        }
+            //    }
                 steps{
                     print "Approver is : " + Approver
                 }
+            steps{
+                print "Approved"
+            }
         }
         stage('push to repo')
         {
