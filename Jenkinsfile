@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
     	registry = 'timgondasr/web2_web'
-    	registryCredential = ‘dockerhub’
+    	registryCredential = credentials(‘dockerhub’)
 	}
 
     stages {
