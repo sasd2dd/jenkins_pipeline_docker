@@ -69,7 +69,7 @@ pipeline {
       	    agent any
       		steps {
 		        script{
-					app = docker.image('web2_web:latest')
+					app = docker.build('timgondasr/web2_web:latest')
 					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 		            	app.push("latest")
 		        	}
