@@ -67,8 +67,8 @@ pipeline {
             agent any
       		steps {
       		    script {
-        			webimg = docker.image("web2_web:latest")
-        			docker.withRegistry("https://index.docker.io/v2/", 'dockerhub'){
+        			docker.withRegistry("timgondasr/web2_web", 'dockerhub'){
+        			    webimg = docker.image("web2_web:latest")
                      	webimg.push("latest")
                     }
         			print "pushed to dockerhub"
