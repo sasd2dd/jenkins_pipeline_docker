@@ -3,10 +3,7 @@ pipeline {
     options {
       buildDiscarder(logRotator(numToKeepStr: '2'))
     }
-    environment {
-      registry = 'sasd2dd'
-      registryCredential = ‘dockerhub’
-    }
+
     stages {
         /* stage('Checkout') {
             agent any
