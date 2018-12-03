@@ -62,7 +62,7 @@ pipeline {
         {
             agent any
             steps{
-                print "Deployed"
+                print "Pushed to repo"
             }
         }
         stage('cleanup'){
@@ -71,6 +71,15 @@ pipeline {
                 println "build"
                 script {
                     sh "docker-compose stop"
+                }
+            }
+        }
+        stage('deploy-with-ansible'){
+            agent any
+            steps{
+                println "deploy with ansible"
+                script {
+                    ansiblePlaybook(credentialsId: 'private_key', inventory: 'inventories/a/hosts', playbook: 'my_playbook.yml')
                 }
             }
         }
