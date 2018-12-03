@@ -4,4 +4,4 @@
 ##########################################
 
 - name: get dir listing
-  shell: ls -ltr
+  shell: ls -ltra
