@@ -65,14 +65,7 @@ pipeline {
         }
         stage('push to repo')
         {
-            agent {
-                docker {
-                    image
-                }
-
-                
-            }
-
+            agent any
       		steps {
                 environment { 
                     CREDS = credentials('dockerhub') 
