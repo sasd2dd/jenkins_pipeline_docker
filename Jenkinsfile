@@ -62,8 +62,11 @@ pipeline {
             //        string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
             //        }
             //    }
+            
             steps{
                 print "Approved"
+                print "${currentBuild.fullDisplayName}"
+            	print "${env.BUILD_URL}"
             }
         }
         stage('push to repo'){
