@@ -69,7 +69,7 @@ pipeline {
         {
             agent any
       		steps {
-        		var web-img = docker.image("web2_web:latest")
+        		var webimg = docker.image("web2_web:latest")
         		print "pushed to dockerhub"
         	}
       	}
