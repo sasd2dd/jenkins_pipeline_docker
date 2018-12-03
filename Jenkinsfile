@@ -68,7 +68,8 @@ pipeline {
             agent any
       		steps {
       		    script {
-        			docker.withRegistry("https://index.docker.io/v1/", "dockerhub"){
+      		    dockercreds = credentials("dockerhub")
+        			docker.withRegistry("https://index.docker.io/v1/", dockercreds){
         			    webimg = docker.image("web2_web:latest")
                      	webimg.push("latest")
                     }
