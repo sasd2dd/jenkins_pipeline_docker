@@ -74,7 +74,7 @@ pipeline {
       		steps {
 		        script{
 					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-		            	app.push("build: ${BUILD_TAG}")
+		            	app.push("${BUILD_TAG}")
 		        	}
 		        }
        			print "pushed to dockerhub"
