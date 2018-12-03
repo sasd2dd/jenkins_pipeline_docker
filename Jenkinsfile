@@ -25,6 +25,7 @@ pipeline {
             steps{
                 println "build"
                 script {
+					app = docker.build('timgondasr/web2_web:latest')
                     RETURN_STATUS = sh "docker-compose up -d --build"
                 }
             }
@@ -69,7 +70,6 @@ pipeline {
       	    agent any
       		steps {
 		        script{
-					app = docker.build('timgondasr/web2_web:latest')
 					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 		            	app.push("latest")
 		        	}
