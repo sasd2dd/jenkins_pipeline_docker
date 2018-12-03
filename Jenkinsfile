@@ -1,3 +1,5 @@
+def app
+
 pipeline {
     agent any
     options {
@@ -63,21 +65,17 @@ pipeline {
                 print "Approved"
             }
         }
-        stage('push to repo')
-        {
-            agent any
+        stage('push to repo'){
+      	    agent any
       		steps {
-                environment { 
-                    CREDS = credentials('dockerhub') 
-                }
-      		    script {
-      		    		docker.withRegistry("https://index.docker.io/v1/", $(CREDS)){
-        			    webimg = docker.image("web2_web:latest")
-                     	webimg.push("latest")
-                    }
-        			print "pushed to dockerhub"
-        		}
-        	}
+		        script{
+					app = docker.image('web2_web:latest')
+					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+		            	app.push("latest")
+		        	}
+		        }
+       			print "pushed to dockerhub"
+      		}
       	}
         stage('cleanup'){
                 agent any
