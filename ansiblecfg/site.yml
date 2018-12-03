@@ -1,4 +1,3 @@
 - hosts: webservers
-  become: ubuntu
   roles:
      - web
