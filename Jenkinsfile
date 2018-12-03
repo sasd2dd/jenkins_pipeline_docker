@@ -3,6 +3,10 @@ pipeline {
     options {
       buildDiscarder(logRotator(numToKeepStr: '2'))
     }
+    environment {
+    	registry = 'timgondasr/web2_web'
+    	registryCredential = ‘dockerhub’
+	}
 
     stages {
         /* stage('Checkout') {
@@ -67,7 +71,7 @@ pipeline {
             agent any
       		steps {
       		    script {
-        			docker.withRegistry("timgondasr/web2_web", 'dockerhub'){
+        			docker.withRegistry(){
         			    webimg = docker.image("web2_web:latest")
                      	webimg.push("latest")
                     }
