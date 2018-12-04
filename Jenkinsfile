@@ -101,9 +101,11 @@ pipeline {
     }
 	post {
 	    success {
-	        mail to: 'timothy.gonda@gmail.com',
-	             subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
-	             body: "Completed ${env.BUILD_URL}"
+	      //  mail to: 'timothy.gonda@gmail.com',
+	      //       subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+	      //       body: "Completed ${env.BUILD_URL}"
+	      
+	      print "Success: ${env.BUILD_URL}"
 	    }
 	}
 }
