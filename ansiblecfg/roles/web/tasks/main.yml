@@ -40,4 +40,9 @@
   become: yes  
 
 - name: start web application
-  shell: "docker-compose up -d"
+  command:  "docker-compose up -d"
+  args: 
+    chdir: /home/ubuntu/web
+  become: yes
+
+    
