@@ -29,6 +29,16 @@
     group: ubuntu
     mode: 0755
   become: yes
+
+- name: copy the app.py file  
+  copy:
+    src: "{{workdir}}/app.py"
+    dest: /home/ubuntu/web/app.py
+    owner: ubuntu
+    group: ubuntu
+    mode: 0755
+  become: yes
+
     
 - name: copy the .env file
   copy:
