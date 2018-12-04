@@ -11,6 +11,30 @@
     
 - name: pull docker application
   shell: docker pull timgondasr/web2_web:jenkins-jenkins-docker-96
-  
+
+- name: Creates web directory
+  file:
+    path: /home/ubuntu/web
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: 0775
+
+- copy the compose file  
+  copy:
+    src: ./docker-compose.yml
+    dest: /home/ubuntu/web/docker-compose.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: 0755
+    
+- copy the .env file
+  copy:
+    src: ./.env
+    dest: /home/ubuntu/web/.env
+    owner: ubuntu
+    group: ubuntu
+    mode: 0755  
+
 - name: start web application
   shell: docker-compose up -d
