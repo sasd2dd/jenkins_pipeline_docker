@@ -1,0 +1,1 @@
+dr_pass: "{{ vault_dr_pass }}"
