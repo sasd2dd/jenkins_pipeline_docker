@@ -40,4 +40,4 @@
   become: yes  
 
 - name: start web application
-  shell: "{{workdir}}/docker-compose up -d"
+  shell: "/home/ubuntu/web/docker-compose up -d"
