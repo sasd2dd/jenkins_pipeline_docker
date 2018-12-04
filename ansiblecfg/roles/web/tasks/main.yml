@@ -19,7 +19,7 @@
     owner: ubuntu
     group: ubuntu
     mode: 0775
-    become: true
+    become: yes
 
 - name: copy the compose file  
   copy:
