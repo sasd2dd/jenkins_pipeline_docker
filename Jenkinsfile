@@ -52,9 +52,9 @@ pipeline {
             }
         }
         stage('approval to deploy'){
-            input{
-                message "Please approve the deployment"
-                ok "Ok"
+            //input{
+                //message "Please approve the deployment"
+                //ok "Ok"
                 //parameters {
                 //    string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
                 //    }
