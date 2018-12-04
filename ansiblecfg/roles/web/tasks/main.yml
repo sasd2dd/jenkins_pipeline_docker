@@ -18,7 +18,7 @@
     state: directory
     owner: ubuntu
     group: ubuntu
-    mode: 0775
+    mode: 0755
   become: yes
 
 - name: copy the compose file  
@@ -28,6 +28,7 @@
     owner: ubuntu
     group: ubuntu
     mode: 0755
+  become: yes
     
 - name: copy the .env file
   copy:
@@ -35,7 +36,8 @@
     dest: /home/ubuntu/web/.env
     owner: ubuntu
     group: ubuntu
-    mode: 0755  
+    mode: 0755
+  become: yes  
 
 - name: start web application
   shell: "{{workdir}}/docker-compose up -d"
