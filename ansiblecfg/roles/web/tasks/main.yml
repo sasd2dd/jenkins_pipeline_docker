@@ -5,6 +5,12 @@
 
 - name: get dir listing
   shell: docker login -u timgondasr -p "{{ vault_dr_pass }}"
-  
+
 - debug:
     msg: "{{ vault_dr_pass }}"
+    
+- name: pull docker application
+  shell: docker pull timgondasr/web2_web:jenkins-jenkins-docker-96
+  
+- name: start web application
+  shell: docker-compose up -d
