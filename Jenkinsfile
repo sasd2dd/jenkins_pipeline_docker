@@ -66,7 +66,7 @@ pipeline {
             steps{
                 print "Approved"
                 print "${currentBuild.fullDisplayName}"
-            	print "${env.BUILD_URL}"
+            	print "${env.BUILD_URL} Approved by ${Approver}"
             }
         }
         stage('push to repo'){
@@ -106,6 +106,13 @@ pipeline {
 	      //       body: "Completed ${env.BUILD_URL}"
 	      
 	      print "Success: ${env.BUILD_URL}"
+	    }
+	    failure {
+	      //  mail to: 'timothy.gonda@gmail.com',
+	      //       subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+	      //       body: "Completed ${env.BUILD_URL}"
+	      
+	      print "Failed Build: ${env.BUILD_URL}"
 	    }
 	}
 }
