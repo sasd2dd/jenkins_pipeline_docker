@@ -8,7 +8,7 @@ pipeline {
 
 
     stages {
-        /* stage('Checkout') {
+        stage('Checkout') {
             agent any
             steps {
                 checkout([$class: 'GitSCM',
@@ -19,7 +19,7 @@ pipeline {
                   ]],
 				])
             }
-        } */
+        }
         stage('build'){
                 agent any
             steps{
@@ -35,13 +35,10 @@ pipeline {
             steps{
                 println "tests"
                 script {
-                    //sh "curl http://localhost:5000"
-                    
                     WEB_RETURN = sh (
                         script: 'curl http://localhost:5000',
                         returnStdout: true
                     ).trim()
-
                     print "Web Returned: " + WEB_RETURN
                     if ( WEB_RETURN.indexOf("carbon",0)  == -1)
                     {
