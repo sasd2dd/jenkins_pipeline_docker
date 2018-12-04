@@ -20,7 +20,7 @@
     group: ubuntu
     mode: 0775
 
-- copy the compose file  
+- name: copy the compose file  
   copy:
     src: ./docker-compose.yml
     dest: /home/ubuntu/web/docker-compose.yml
@@ -28,7 +28,7 @@
     group: ubuntu
     mode: 0755
     
-- copy the .env file
+- name: copy the .env file
   copy:
     src: ./.env
     dest: /home/ubuntu/web/.env
