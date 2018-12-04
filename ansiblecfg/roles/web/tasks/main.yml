@@ -23,7 +23,7 @@
 
 - name: copy the compose file  
   copy:
-    src: ./docker-compose.yml
+    src: "{{workdir}}/docker-compose.yml"
     dest: /home/ubuntu/web/docker-compose.yml
     owner: ubuntu
     group: ubuntu
@@ -31,11 +31,11 @@
     
 - name: copy the .env file
   copy:
-    src: ./.env
+    src: "{{workdir}}/.env"
     dest: /home/ubuntu/web/.env
     owner: ubuntu
     group: ubuntu
     mode: 0755  
 
 - name: start web application
-  shell: docker-compose up -d
+  shell: "{{workdir}}/docker-compose up -d"

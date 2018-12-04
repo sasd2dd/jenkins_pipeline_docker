@@ -1,3 +1,5 @@
 - hosts: all
+  vars:
+    workdir: "{{lookup('env','WORKSPACE'}}"
   roles:
      - web
