@@ -7,4 +7,4 @@
   shell: docker login -u timgondasr -p
   
 - debug:
-  msg: {{ vault_dr_pass }}
+  msg: "{{ vault_dr_pass }}"
