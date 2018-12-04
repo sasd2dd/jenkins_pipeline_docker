@@ -55,13 +55,13 @@ pipeline {
             }
         }
         stage('approval to deploy'){
-            //input{
-            //    message "Please approve the deployment"
-            //    ok "Ok"
-            //    parameters {
-            //        string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
-            //        }
-            //    }
+            input{
+                message "Please approve the deployment"
+                ok "Ok"
+                parameters {
+                    string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
+                    }
+                }
             
             steps{
                 print "Approved"
@@ -99,4 +99,11 @@ pipeline {
             }
         }
     }
+	post {
+	    success {
+	        mail to: 'timothy.gonda@gmail.com',
+	             subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+	             body: "Completed ${env.BUILD_URL}"
+	    }
+	}
 }
