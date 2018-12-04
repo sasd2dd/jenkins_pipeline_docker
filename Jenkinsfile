@@ -55,15 +55,15 @@ pipeline {
             input{
                 message "Please approve the deployment"
                 ok "Ok"
-                parameters {
-                    string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
-                    }
-                }
+                //parameters {
+                //    string(name: 'Approver', defaultValue: "none", description: "Person approving the deployment")
+                //    }
+               // }
             
             steps{
                 print "Approved"
                 print "${currentBuild.fullDisplayName}"
-            	print "${env.BUILD_URL} Approved by ${Approver}"
+            	//print "${env.BUILD_URL} Approved by ${Approver}"
             }
         }
         stage('push to repo'){
